@@ -9,9 +9,9 @@
 /docker-compose.yml
 /.docker/python/fixuid.tar.gz
 /.bin/uvicorn
-/.certs/POC-ML.test.key
-/.certs/POC-ML.test.crt
 /.certs/.signer.crt
+/.certs/ddb-python-fastapi-demo.test.key
+/.certs/ddb-python-fastapi-demo.test.crt
 ###< inetum-orleans/docker-devbox ###
 
 ### poetry

@@ -1,6 +1,6 @@
 core:
   domain:
-    sub: POC-ML
+    sub: ddb-python-fastapi-demo
 
 docker:
   port_prefix: 373
