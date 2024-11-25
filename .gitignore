@@ -1,0 +1,19 @@
+###> inetum-orleans/docker-devbox ###
+/.docker/python/Dockerfile
+/*ddb.local.*
+/.bash_enter
+/.bash_leave
+/.bin/pip
+/.bin/poetry
+/.bin/python
+/docker-compose.yml
+/.docker/python/fixuid.tar.gz
+/.bin/uvicorn
+/.certs/POC-ML.test.key
+/.certs/POC-ML.test.crt
+/.certs/.signer.crt
+###< inetum-orleans/docker-devbox ###
+
+### poetry
+/.venv/
+/env/
