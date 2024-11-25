@@ -23,7 +23,7 @@ ddb configure
 make init
 ```
 
-### Launch the serveur
+### Launch the server
 ```bash
 make watch
 ```
