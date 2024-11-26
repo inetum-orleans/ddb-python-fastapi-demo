@@ -17,3 +17,6 @@
 ### poetry
 /.venv/
 /env/
+
+### env
+.env
