@@ -1,5 +1,5 @@
-from fastapi import Depends, FastAPI, HTTPException
-from fastapi.security import APIKeyHeader
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from dotenv import load_dotenv
 import os
 
@@ -9,17 +9,29 @@ load_dotenv()
 
 API_KEY = os.getenv("X_API_KEY")
 
-header_scheme = APIKeyHeader(name="X-API-KEY")
-
-async def validate_key(header_scheme: str = Depends(header_scheme)):
-    if header_scheme == API_KEY:
+async def validate_key(request_api_key: str):
+    if request_api_key == API_KEY:
         return True
     else:
         return False
 
+
+@app.middleware("http")
+async def api_key_validator(request: Request, call_next):
+    request_api_key = request.headers.get("X-API-KEY")
+
+    is_key_valid = await validate_key(request_api_key)
+    if not is_key_valid:
+        return JSONResponse(
+            status_code=401,
+            content={"Message": "Your API key is incorrect."},
+        )
+
+    response = await call_next(request)
+
+    return response
+
+
 @app.get("/")
-def hello(is_key_valid: str = Depends(validate_key)):
-    if is_key_valid is not True:
-        raise HTTPException(status_code=401, detail="Your API key is incorrect.")
-    
+def hello():
     return {"Message": "Hello world !"}
