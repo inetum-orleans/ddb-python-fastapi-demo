@@ -5,6 +5,8 @@ import os
 
 app = FastAPI(title="Test", description="test")
 
+# Configure your CORS using https://fastapi.tiangolo.com/tutorial/cors/#use-corsmiddleware
+
 load_dotenv()
 
 API_KEY = os.getenv("X_API_KEY")
