@@ -17,19 +17,26 @@ git clone https://github.com/inetum-orleans/ddb-python-fastapi-demo.git
 ddb configure
 ```
 
+### Activate ddb if it is the first time opening the project
+
+```bash
+$(ddb activate)
+```
+
 ### Configure your environnement variables
 
-Copy/Paste the ```.env.sample``` and rename it ```.env```.
+Copy/Paste the `.env.sample` and rename it `.env`.
 
-Set your *"X-API-KEY*" as you want. You will need to pass this value to every request header in order to be authorized.
+Set your _"X-API-KEY_" as you want. You will need to pass this value to every request header in order to be authorized.
 
 ### Initialize the project
 
-```bash 
+```bash
 make init
 ```
 
 ### Launch the server
+
 ```bash
 make watch
 ```
